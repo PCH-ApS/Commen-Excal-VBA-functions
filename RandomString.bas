@@ -1,4 +1,7 @@
-Public Function RandomString(Length As Integer) As String
+Attribute VB_Name = "RandomString"
+Option Explicit
+'@Folder "Code Common"
+Public Function RandomString(ByVal Length As Long) As String
 'PURPOSE: Create a Randomized String of Characters
 'SOURCE: www.TheSpreadsheetGuru.com/the-code-vault
 
@@ -29,3 +32,5 @@ CharacterBank = Array("a", "b", "c", "d", "e", "f", "g", "h", "i", "j", _
   RandomString = str
 
 End Function
+
+

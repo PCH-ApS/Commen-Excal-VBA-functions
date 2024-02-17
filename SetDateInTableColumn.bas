@@ -1,11 +1,14 @@
-Public Sub SetDateInTableColumn(ByRef sourceTable As ListObject, columnTitle As String)
+Attribute VB_Name = "SetDateInTableColumn"
+'@Folder "Code Common"
+Option Explicit
+Public Sub SetDateInTableColumn(ByVal sourceTable As ListObject, ByRef columnTitle As String)
 
     Dim sourceColumn As ListColumn
-    Set sourceColumn = sourceTable.ListColumns(columnTitle)
-    Dim a As Object
+    Set sourceColumn = sourceTable.ListColumns.[_Default](columnTitle)
+    Dim DateField As Object
     If Not sourceColumn Is Nothing Then
-        For Each a In sourceColumn.DataBodyRange
-            If IsError(a) Then a = Now
+        For Each DateField In sourceColumn.DataBodyRange
+            If IsError(DateField) Then DateField = Now
         Next
     End If
     

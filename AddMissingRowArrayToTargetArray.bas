@@ -1,4 +1,7 @@
-Public Function AddMissingRowArrayToTargetArray(ByRef sourceArray As Variant, ByRef targetArray As Variant, headerArray As Variant, sourceRowIDarr As Variant) As Variant
+Attribute VB_Name = "AddMissingRowArrayToTargetArray"
+Option Explicit
+'@Folder "Code Common"
+Public Function AddMissingRowArrayToTargetArray(ByVal sourceArray As Variant, ByRef targetArray As Variant, ByRef headerArray As Variant, ByRef sourceRowIDarr As Variant) As Variant
     
     Dim newRowCount As Long
     newRowCount = 1

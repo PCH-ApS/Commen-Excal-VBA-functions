@@ -1,4 +1,7 @@
-Public Function CreateArrayFromCSV(ByVal reportFile As String, delimitter As String) As Variant
+Attribute VB_Name = "CreateArrayFromCSV"
+Option Explicit
+'@Folder "Code Common"
+Public Function CreateArrayFromCSV(ByVal reportFile As String, ByRef delimitter As String) As Variant
 
     Open reportFile For Input As #1
     Dim numCols As Long
@@ -8,7 +11,7 @@ Public Function CreateArrayFromCSV(ByVal reportFile As String, delimitter As Str
         
     Do Until EOF(1)
         Line Input #1, rowFromFile
-        columnFromRow = Split(rowFromFile, delimitter)
+        columnFromRow = split(rowFromFile, delimitter)
         numRows = numRows + 1
         'Array starts from 0 thus + 1. Check all rows to find max number of columns
         If UBound(columnFromRow) + 1 > numCols Then numCols = numCols + 1
@@ -20,14 +23,14 @@ Public Function CreateArrayFromCSV(ByVal reportFile As String, delimitter As Str
     
     Open reportFile For Input As #1
     numRows = 0
-    Dim j As Long
+    Dim numColumns As Long
     Do Until EOF(1)
         Line Input #1, rowFromFile
-        columnFromRow = Split(rowFromFile, delimitter)
+        columnFromRow = split(rowFromFile, delimitter)
         numRows = numRows + 1
-        For j = 0 To UBound(columnFromRow)
-            myArray(numRows, j + 1) = columnFromRow(j)
-        Next j
+        For numColumns = 0 To UBound(columnFromRow)
+            myArray(numRows, numColumns + 1) = columnFromRow(numColumns)
+        Next numColumns
     Loop
     Close #1
     

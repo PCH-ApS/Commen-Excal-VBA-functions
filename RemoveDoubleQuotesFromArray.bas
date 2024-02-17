@@ -1,3 +1,6 @@
+Attribute VB_Name = "RemoveDoubleQuotesFromArray"
+Option Explicit
+'@Folder "Code Common"
 Public Function RemoveDoubleQuotesFromArray(ByRef arr As Variant) As Variant
    
     Dim columnCount As Long
@@ -11,7 +14,7 @@ Public Function RemoveDoubleQuotesFromArray(ByRef arr As Variant) As Variant
                 Dim tmpCellString As String
                 '@Ignore EmptyStringLiteral
                 tmpCellString = Replace(cellString, """", "")
-                arr(rowCount, columnCount) = Trim(tmpCellString)
+                arr(rowCount, columnCount) = Trim$(tmpCellString)
             End If
         Next rowCount
     Next columnCount
